@@ -1,0 +1,15 @@
+// script.js
+document.getElementById('create-account').addEventListener('click', () => {
+    const name = prompt('Enter your name:');
+    fetch('/create_account', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name })
+    })
+    .then(response => response.json())
+    .then(data => alert(data.message));
+});
+
+// ... Other event listeners for deposit, withdrawal, etc.
